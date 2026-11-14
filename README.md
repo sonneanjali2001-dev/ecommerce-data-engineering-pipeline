@@ -19,7 +19,7 @@ notebooks/   PySpark notebook starter
 sql/         SQL transformations and KPI queries
 pipelines/   Parameterized ADF pipeline example
 docs/        Architecture and run instructions
-screenshots/ 
+screenshots/ Add your own screenshots after running the project
 ```
 
 ## Data flow
