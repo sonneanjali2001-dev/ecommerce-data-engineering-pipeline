@@ -1,0 +1,6 @@
+customer_id,customer_name,city,state,customer_segment
+C001,Aarav,Pune,Maharashtra,Premium
+C002,Diya,Mumbai,Maharashtra,Regular
+C003,Kabir,Bengaluru,Karnataka,Premium
+C004,Meera,Hyderabad,Telangana,Regular
+C005,Ishaan,Delhi,Delhi,Regular

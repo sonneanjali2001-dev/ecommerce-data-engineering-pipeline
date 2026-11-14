@@ -1,0 +1,7 @@
+order_id,customer_id,order_date,order_status,shipping_city
+O1001,C001,2026-01-03,Delivered,Pune
+O1002,C002,2026-01-05,Delivered,Mumbai
+O1003,C003,2026-01-08,In Transit,Bengaluru
+O1004,C004,2026-01-10,Delivered,Hyderabad
+O1005,C001,2026-01-12,Cancelled,Pune
+O1006,C005,2026-01-15,Delivered,Delhi

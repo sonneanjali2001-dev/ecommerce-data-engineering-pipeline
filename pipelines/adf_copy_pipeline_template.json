@@ -1,0 +1,59 @@
+{
+  "name": "PL_Ecommerce_Copy_Landing_Template",
+  "properties": {
+    "description": "Illustrative ADF copy pipeline template. Configure linked services, datasets, parameters and secure credentials in your own ADF instance.",
+    "parameters": {
+      "sourceFileName": {
+        "type": "String",
+        "defaultValue": "orders.csv"
+      },
+      "landingFolder": {
+        "type": "String",
+        "defaultValue": "landing/orders"
+      }
+    },
+    "activities": [
+      {
+        "name": "CopySourceToADLS",
+        "type": "Copy",
+        "inputs": [
+          {
+            "referenceName": "DS_SourceCsv_PARAMETERIZE",
+            "type": "DatasetReference"
+          }
+        ],
+        "outputs": [
+          {
+            "referenceName": "DS_ADLS_Landing_PARAMETERIZE",
+            "type": "DatasetReference",
+            "parameters": {
+              "folderPath": {
+                "value": "@pipeline().parameters.landingFolder",
+                "type": "Expression"
+              },
+              "fileName": {
+                "value": "@pipeline().parameters.sourceFileName",
+                "type": "Expression"
+              }
+            }
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "storeSettings": {
+              "type": "HttpReadSettings",
+              "requestMethod": "GET"
+            }
+          },
+          "sink": {
+            "type": "DelimitedTextSink",
+            "storeSettings": {
+              "type": "AzureBlobFSWriteSettings"
+            }
+          }
+        }
+      }
+    ]
+  }
+}
