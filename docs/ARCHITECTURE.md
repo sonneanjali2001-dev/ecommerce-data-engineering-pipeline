@@ -1,31 +1,72 @@
-# Architecture
+# E-Commerce Data Engineering Architecture
+
+## 1. Project Architecture
+
+This project follows a Medallion Architecture to process e-commerce data through multiple layers.
+
+## 2. Data Flow
 
 ```text
-CSV source files
-      |
-      v
-Azure Data Factory (copy/orchestration)
-      |
-      v
-ADLS Gen2 - Landing
-      |
-      v
-Bronze Delta (raw ingested data)
-      |
-      v
-Silver Delta (cleaned and validated data)
-      |
-      v
-Gold Delta (business-ready sales model)
-      |
-      v
-SQL analytics / Power BI
+   Source CSV Files
+          |
+          v
+   Azure Data Factory
+          |
+          v
+   Azure Data Lake Storage Gen2
+          |
+          v
+     Landing Layer
+          |
+          v
+     Bronze Layer
+    (Raw Data Storage)
+          |
+          v
+     Silver Layer
+ (Cleaning & Transformation)
+          |
+          v
+      Gold Layer
+ (Business-Ready Data)
+          |
+          v
+   Microsoft Fabric Lakehouse
+          |
+          v
+     SQL Analytics
+          |
+          v
+       Power BI
 ```
 
-## Layer responsibilities
-- **Landing:** immutable source-file drop zone.
-- **Bronze:** source-aligned data with ingestion metadata.
-- **Silver:** standardized types, validated keys, filtered invalid rows.
-- **Gold:** joined sales fact and dimensions for reporting.
+## 3. Architecture Components
 
-This is a conceptual architecture for the learning project. Add an actual architecture screenshot after implementing it in your cloud workspace.
+### Landing Layer
+Stores incoming raw e-commerce source files.
+
+### Bronze Layer
+Maintains ingested data in Delta format.
+
+### Silver Layer
+Performs data cleaning, validation and transformation using PySpark.
+
+### Gold Layer
+Contains business-ready datasets for analytical reporting.
+
+## 4. Business Insights
+
+- Regional sales performance
+- Customer segmentation
+- Order and delivery analysis
+- Revenue and discount analysis
+- Delivery SLA monitoring
+
+## 5. Technologies
+
+Azure Data Factory | ADLS Gen2 | PySpark | Delta Lake | Microsoft Fabric | SQL | Power BI
+
+---
+
+**Project:** E-Commerce Data Engineering Pipeline  
+**Author:** Anjali Sonni
